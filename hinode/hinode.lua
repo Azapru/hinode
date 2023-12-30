@@ -5,7 +5,6 @@ hinode.obj = {}
 
 local rectangles = {}
 local objects = {}
-local objectImages = {}
 
 -------------------------------------------------- hinode --------------------------------------------------
 
@@ -28,7 +27,7 @@ function hinode.draw()
     end
 
     for i = 1, #objects, 1 do
-        love.graphics.draw(objectImages[objects[i].imageId], objects[i].x, objects[i].y, objects[i].r)
+        love.graphics.draw(objects[i].image, objects[i].x, objects[i].y, objects[i].r)
     end
 end
 
@@ -53,19 +52,12 @@ end
 
 -------------------------------------------------- obj --------------------------------------------------
 
--- Loads an image from a file.
----@param filepath string
-function hinode.obj.loadImage(filepath)
-    table.insert(objectImages, love.graphics.newImage(filepath))
-    return #objectImages
-end
-
 -- Creates new object.
----@param imageId integer
+---@param image Image
 ---@param x integer
 ---@param y integer
-function hinode.obj.new(imageId, x, y)
-    table.insert(objects, {imageId=imageId, x=x, y=y, r=0})
+function hinode.obj.new(image, x, y)
+    table.insert(objects, {image=image, x=x, y=y, r=0})
     return #objects
 end
 

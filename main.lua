@@ -5,7 +5,7 @@ function love.load()
 
     Obj = hinode.rect.new(true, 32, 32, 128, 64)
 
-    KeithImage = hinode.obj.loadImage("hinode/keith.png")
+    KeithImage = love.graphics.newImage("hinode/keith.png")
     Keith = hinode.obj.new(KeithImage, 256, 256)
 end
 
